@@ -1,5 +1,8 @@
 package com.dius.tennisscorer.model;
 
+import com.dius.tennisscorer.score.GenericScorer;
+import com.dius.tennisscorer.score.Scorer;
+
 /**
  * 
  * @author sajith
@@ -14,10 +17,13 @@ public class Match {
 	
 	private String player2Name;
 	
+	private Scorer scorer;
+	
 	public Match(String player1, String player2) {
 		this.player1Name = player1;
 		this.player2Name = player2;
 		this.set = new Set();
+		scorer = new GenericScorer();
 	}
 	
 	public void pointWonBy(String player) {
