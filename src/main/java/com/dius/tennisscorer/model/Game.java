@@ -27,22 +27,7 @@ public class Game {
 	}
 
 	private int addNewPoint(int currentPoints) {
-		if (currentPoints == 0) {
-			return 15;
-		}
-		if (currentPoints == 15) {
-			return 30;
-		}
-		if (currentPoints == 30) {
-			return 40;
-		}
-		if (currentPoints == 40) {
-			return 4;
-		}
-		if (currentPoints >= 4 && (currentPoints != 15 || currentPoints != 30 || currentPoints != 40)) {
-			return ++currentPoints;
-		}
-		return 0;
+		return ++currentPoints;
 	}
 
 	public int getPlayer1Score() {

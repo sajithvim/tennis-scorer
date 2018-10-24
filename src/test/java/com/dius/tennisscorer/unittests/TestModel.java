@@ -28,7 +28,7 @@ public class TestModel {
 
 		// Scenario
 		set.pointsWonBy("player1");
-		assertEquals(15, set.getCurrentGame().getPlayer1Score());
+		assertEquals(1, set.getCurrentGame().getPlayer1Score());
 		assertEquals(0, set.getCurrentGame().getPlayer2Score());
 	}
 
@@ -37,12 +37,12 @@ public class TestModel {
 		// Set variables
 		Set set = new Set();
 		Game game = new Game();
-		game.setPlayer1Score(15);
+		game.setPlayer1Score(1);
 		set.setCurrentGame(game);
 
 		// Scenario
 		set.pointsWonBy("player1");
-		assertEquals(30, set.getCurrentGame().getPlayer1Score());
+		assertEquals(2, set.getCurrentGame().getPlayer1Score());
 		assertEquals(0, set.getCurrentGame().getPlayer2Score());
 	}
 
@@ -51,7 +51,7 @@ public class TestModel {
 		// Set variables
 		Set set = new Set();
 		Game game = new Game();
-		game.setPlayer1Score(40);
+		game.setPlayer1Score(3);
 		set.setCurrentGame(game);
 
 		// Scenario
@@ -67,7 +67,6 @@ public class TestModel {
 		Game game = new Game();
 		game.setPlayer1Score(4);
 		set.setCurrentGame(game);
-
 		// Scenario
 		set.pointsWonBy("player1");
 		assertEquals(5, set.getCurrentGame().getPlayer1Score());
