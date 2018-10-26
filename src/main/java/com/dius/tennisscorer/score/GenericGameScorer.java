@@ -15,19 +15,25 @@ public class GenericGameScorer implements GameScorer {
 	public GenericGameScorer(String player1, String player2) {
 		this.player1Name = player1;
 		this.player2Name = player2;
+		init();
 	}
 
 	public GenericGameScorer() {
+		init();
+	}
+
+	private void init() {
 		scoreMapping = new HashMap<>();
 		scoreMapping.put("0", "0");
 		scoreMapping.put("1", "15");
 		scoreMapping.put("2", "30");
 		scoreMapping.put("3", "40");
+
 	}
 
 	public String scoreGame(Game game) {
 		if (Status.TIE_BREAK.equals(game.getGameStatus())) {
-			return formatGameScore(game);
+			return this.formatGameScore(game);
 		}
 		if (game.getPlayer1Score() >= 3 && game.getPlayer2Score() >= 3
 				&& Math.abs(game.getPlayer1Score() - game.getPlayer2Score()) <= 1) {
@@ -43,7 +49,7 @@ public class GenericGameScorer implements GameScorer {
 		// Analyze closure situation
 		if (game.getPlayer1Score() >= 4 || game.getPlayer2Score() >= 4) {
 			if (Math.abs(game.getPlayer1Score() - game.getPlayer2Score()) < 2) {
-				return formatGameScore(game);
+				return this.formatGameScore(game);
 			} else {
 				if (game.getPlayer1Score() > game.getPlayer2Score()) {
 					game.setWinner("player1");
@@ -54,10 +60,10 @@ public class GenericGameScorer implements GameScorer {
 				return "WON";
 			}
 		}
-		return formatGameScore(game);
+		return this.formatGameScore(game);
 	}
 
-	protected String formatGameScore(Game game) {
+	private String formatGameScore(Game game) {
 		String player1Score = Integer.toString(game.getPlayer1Score());
 		String player2Score = Integer.toString(game.getPlayer2Score());
 		player1Score = scoreMapping.get(player1Score) != null ? scoreMapping.get(player1Score) : player1Score;
