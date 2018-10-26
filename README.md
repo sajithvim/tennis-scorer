@@ -3,7 +3,7 @@ This is a simple tennis scoring system that can score a match between two single
 
 ## Setup
 
-The code is written using Maven. Use ```git clone``` operation to download the code and run ````mvn clean install ``` 
+The code is written using Maven. Use ```git clone``` operation to download the code and run ```mvn clean install```
 
 ## About tests
 
